@@ -1,13 +1,7 @@
-Instructions
-Pronto! is Seattle's bike sharing program, which launched in fall 2014. You may have seen the green bike docks around campus. It was also in the news frequently and eventually shut down.
-
-You will be using data from the 2015 Pronto Cycle Share Data Challenge. These are available for download as a 75 MB ZIP file from https://s3.amazonaws.com/pronto-data/open_data_year_one.zip. Once unzipped, the folder containing all the files is around 900 MB. The open_data_year_one folder contains a README.txt file that you should reference for documentation.
-
-Questions for you to answer are as quoted blocks of text. Put your code used to address these questions and any comments you have below each block. Remember the guiding DRY principle: Don't Repeat Yourself!
+Pronto! is Seattle's bike sharing program, which launched in fall 2014. 
 
 PART 1
 Loading the Data
-Set your working directory to be the open_data_year_one folder. Then use the list.files() command to return a character vector giving all the files in that folder, and store it to an object called files_in_year_one. Then use vector subsetting on files_in_year_one to remove the entries for README.txt (which isn't data) and for 2015_status_data.csv (which is massive and doesn't have interesting information, so we're going to exclude it). Thus, files_in_year_one should be a character vector with three entries.
 
 # load the libraries
 library(readr)
@@ -36,8 +30,6 @@ Set the names for data_list using the names() function and the data_list_names v
 names(data_list) <- data_list_names
 data_list
 Then, write a for() loop that uses read_csv() from the readr package to read in all the CSV files contained in the ZIP file, seq_alonging the files_in_year_one vector. Store each of these files to its corresponding entry in data_list. The data download demo might be a helpful reference.
-
-You will want to use the cache=TRUE chunk option for this chunk --- otherwise you'll have to wait for the data to get read in every single time you knit. You will also want to make sure you are using read_csv() in the readr package and not base R's read.csv() as readr's version is much faster, gives you a progress bar, and won't convert all character variables to factors automatically.
 
 # read in the data in the open_data_year_one folder
 # paste0 to get the filepaths right
